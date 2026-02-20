@@ -1,0 +1,25 @@
+# configs/paths.yaml
+
+base_dir: "C:/Users/yuich/python_project/project_analysis"
+
+data:
+  raw: "{base_dir}/data/0_raw"
+  processed: "{base_dir}/data/1_processed"
+  time_series: "{base_dir}/data/2_time_series_feature"
+  summary: "{base_dir}/data/3_summary_feature"
+
+src:
+  preprocessing: "{base_dir}/src/1_preprocessing"
+  time_series: "{base_dir}/src/2_time_series_feature"
+  summary: "{base_dir}/src/3_summary_feature"
+  analysis: "{base_dir}/src/4_analysis"
+  etc: "{base_dir}/src/etc"
+
+results:
+  base: "{base_dir}/daily_results/results_{date}"
+  figures: "{base_dir}/daily_results/results_{date}/figures"
+  tables: "{base_dir}/daily_results/results_{date}/tables"
+  reports: "{base_dir}/daily_results/results_{date}/reports"
+
+notebooks: "{base_dir}/notebooks"
+configs: "{base_dir}/configs"

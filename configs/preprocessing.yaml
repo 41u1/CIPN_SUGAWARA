@@ -1,0 +1,4 @@
+filter:
+  type: savitzky_golay
+  window_length: 11
+  polyorder: 3
