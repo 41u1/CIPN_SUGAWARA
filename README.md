@@ -47,8 +47,6 @@ tables/   分析結果のCSVや統計表
 reports/  まとめレポート（Markdown, PDFなど）
 </pre>
 
-💡 <code>YYYYMMDD</code> は実行日で自動作成される（例：<code>results_20251020</code>）
-</details>
 
 ---
 
@@ -110,4 +108,54 @@ python main_hand_tracking.py
 
 # 環境構築
 [venvで手軽にPythonの仮想環境を構築しよう](https://qiita.com/shun_sakamoto/items/7944d0ac4d30edf91fde)
+
+姿勢推定（研究室パソコン）
+
+
+ロンベルグ試験
+
+重心座標の算出
+src\2_time_series_feature\GoB_比率考慮版.py
+c1,C2両方について重心の座標を算出する
+使い方　被験者番号と被験者グループを指定
+src\2_time_series_feature\GoB_L_only.py
+ロンベルグ試験のC1についてだけ，右側が映っていないのでガクガクしてしまうから左側だけで算出して置き換える
+
+軌跡長・凸包面積
+src\3_summary_feature\ROMBERG\ROMBERG_ratio_filtered.py
+重心座標から2次元平面に復元を行う
+src\4_analysis\ROMBERG\Multi va Control\クロフォードテスト_軌跡.py
+CSVデータを読み込んでEO，EC，ROMBERG Ratioの3つを箱ひげ図として出力
+src\4_analysis\ROMBERG\重心軌跡比較.py
+スライド用の重心軌跡の可視化図の比較．どれの患者のどの試行を表示するかは選べる．
+
+分散
+src\3_summary_feature\ROMBERG\narrow_window_variance.py
+3つの分散が出る
+src\4_analysis\ROMBERG\Multi va Control\スライド用.py
+CSVデータを読み込んでEO，EC，ROMBERG Ratioの3つを箱ひげ図として出力
+
+重症度比較
+src\4_analysis\重症度plot.py　
+重症度指標と，ロンベルグ率との比較をするコード．入力は手動．
+
+以下はめぼしい結果が出てない．
+動的タスク
+3次元復元
+src\Scripts\reconstruction\calib\0_trim_calib.py
+拍手音によって同期とトリミング．出力は，Setting1(動的タスク），Setting2(静的タスク）の二つ．ちゃんと同期できているかを波形で確認．
+src\Scripts\reconstruction\calib\1_calib.py
+単眼とステレオのキャリブレーションを行う．再投影誤差が十分に低いかを確認．うまくいかない場合(src\Scripts\reconstruction\calib\calib_new.py)も試す
+src\Scripts\reconstruction\calib\2_triangulation.py
+三角測量により3次元座標を出力する．
+src\Scripts\reconstruction\calib\3_3d_visual.py
+出力された座標を3次元空間にプロットする．3次元化がうまくいったかの確認とスライド用．
+
+TUG試験
+フェーズ分割？
+レーダ―チャート
+PCA？
+
+4m歩行
+
 
