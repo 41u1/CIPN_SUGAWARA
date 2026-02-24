@@ -166,6 +166,11 @@ src\Scripts\reconstruction\calib\3_3d_visual.py
 出力された座標を3次元空間にプロットする．3次元化がうまくいったかの確認とスライド用．
 <img width="628" height="417" alt="image" src="https://github.com/user-attachments/assets/33672e38-2ed7-45ce-8b8a-644c481f91c3" />
 
+3D解析(3次元化したデータを活用)
+src\2_time_series_feature\3D\ANGLE.py
+3次元の関節角度を求める
+src\2_time_series_feature\3D\GoB.py
+3次元の重心の座標を求める
 
 TUG試験
 フェーズ分割？
@@ -182,6 +187,9 @@ src\4_analysis\TUG\多角的分析.py
 7つの指標についてPCA分析などの多角的な分析を行う．
 <img width="960" height="768" alt="image" src="https://github.com/user-attachments/assets/71920d01-efb2-4ffb-99bd-d0b0d8135c96" />
 
+src\4_analysis\TUG\kiseki.py
+腰座標の水平面上の軌跡をフェーズ分割で色分け，分割がうまくいっているかとスライド用
+<img width="800" height="1000" alt="image" src="https://github.com/user-attachments/assets/7a8ba6c5-28fa-4b27-b3f7-93ac0c49c3a8" />
 
 
 4m歩行
