@@ -111,7 +111,8 @@ python main_hand_tracking.py
 [venvで手軽にPythonの仮想環境を構築しよう](https://qiita.com/shun_sakamoto/items/7944d0ac4d30edf91fde)
 
 姿勢推定（研究室パソコン）
-http://10.240.77.18:5000/sharing/UJkwnmlqt　研究室サーバーからCSVをコピー
+研究室サーバーからCSVをコピー
+http://10.240.77.18:5000/sharing/UJkwnmlqt
 
 ロンベルグ試験
 
