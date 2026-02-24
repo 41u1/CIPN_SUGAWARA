@@ -111,7 +111,7 @@ python main_hand_tracking.py
 [venvで手軽にPythonの仮想環境を構築しよう](https://qiita.com/shun_sakamoto/items/7944d0ac4d30edf91fde)
 
 姿勢推定（研究室パソコン）
-
+http://10.240.77.18:5000/sharing/UJkwnmlqt　研究室サーバーからCSVをコピー
 
 ロンベルグ試験
 
@@ -193,6 +193,11 @@ src\4_analysis\TUG\kiseki.py
 
 
 4m歩行
+src\3_summary_feature\4MWALK\step_detection.py
+接地の検出の可視化用．結構重い
+<img width="800" height="1000" alt="image" src="https://github.com/user-attachments/assets/c120d0d6-6dd1-4d57-a6b1-59b1c7df5eca" />
 
+src\3_summary_feature\4MWALK\箱ひげ図.py
+一般的な歩行パラメータ（歩幅，歩隔，歩行速度，ケイデンス）を箱ひげ図にまとめる．
 
 
