@@ -46,6 +46,7 @@ figures/  グラフ（png, pdfなど）
 tables/   分析結果のCSVや統計表
 reports/  まとめレポート（Markdown, PDFなど）
 </pre>
+</details>
 
 
 ---
