@@ -120,22 +120,27 @@ c1,C2両方について重心の座標を算出する
 使い方　被験者番号と被験者グループを指定
 src\2_time_series_feature\GoB_L_only.py
 ロンベルグ試験のC1についてだけ，右側が映っていないのでガクガクしてしまうから左側だけで算出して置き換える
+<img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/456d52bd-2d0e-471d-91d2-a87c8e7f6a9c" />
 
 軌跡長・凸包面積
 src\3_summary_feature\ROMBERG\ROMBERG_ratio_filtered.py
 重心座標から2次元平面に復元を行う
+<img width="3600" height="2100" alt="image" src="https://github.com/user-attachments/assets/983ca2d1-7278-4918-b0dc-bb68214dc9d6" />
+
 src\4_analysis\ROMBERG\クロフォードテスト_軌跡.py
 CSVデータを読み込んでEO，EC，ROMBERG Ratioの3つを箱ひげ図として出力
 <img width="10602" height="2785" alt="image" src="https://github.com/user-attachments/assets/d084036a-ee51-42b4-858e-548fe62d6ed3" />
 
 src\4_analysis\ROMBERG\重心軌跡比較.py
 スライド用の重心軌跡の可視化図の比較．どれの患者のどの試行を表示するかは選べる．
+<img width="892" height="784" alt="image" src="https://github.com/user-attachments/assets/3e5e5002-abf4-46b5-825c-0cb814458d35" />
 
 
 
 分散
 src\3_summary_feature\ROMBERG\narrow_window_variance.py
 3つの分散が出る（TOTAL，GLOBAL,LOCAL）　基本的にはTOTAL（一般的な分散）を用いる
+
 
 src\4_analysis\ROMBERG\クロフォードテスト_分散.py
 CSVデータを読み込んでEO，EC，ROMBERG Ratioの3つを箱ひげ図として出力
@@ -144,6 +149,8 @@ CSVデータを読み込んでEO，EC，ROMBERG Ratioの3つを箱ひげ図と�
 重症度比較
 src\4_analysis\重症度plot.py　
 重症度指標と，ロンベルグ率との比較をするコード．入力は手動．
+<img width="4647" height="4093" alt="image" src="https://github.com/user-attachments/assets/4fa8ce31-08e1-4bd8-8e67-d65bb091c25c" />
+
 
 以下はめぼしい結果が出てない．
 動的タスク
@@ -170,8 +177,13 @@ src\4_analysis\TUG\レーダー＋凡例.py
 7つの指標のレーダーチャートを作成（tug_metrics_averaged.csvを読み込む)
 <img width="5122" height="3559" alt="image" src="https://github.com/user-attachments/assets/6acb3360-fba8-4bd1-988b-6d9d8f421f56" />
 
-PCA？
+src\4_analysis\TUG\多角的分析.py
+7つの指標についてPCA分析などの多角的な分析を行う．
+<img width="960" height="768" alt="image" src="https://github.com/user-attachments/assets/71920d01-efb2-4ffb-99bd-d0b0d8135c96" />
+
+
 
 4m歩行
+
 
 
