@@ -218,10 +218,10 @@ README.md               プロジェクト概要と手順．
 <summary>🟢 ロンベルグ試験</summary>
 
 ### 重心座標の算出
-- `src\2_time_series_feature\GoB_比率考慮版.py`
+- `src\2_time_series_feature\ROMBERG\GoB_比率考慮版.py`
   - カメラC1，C2の両方について重心の座標を算出します．
   - **使い方**: 被験者番号と被験者グループを指定して実行します．
-- `src\2_time_series_feature\GoB_L_only.py`
+- `src\2_time_series_feature\ROMBERG\GoB_L_only.py`
   - ロンベルグ試験のC1用スクリプトです．右側が映っておらずガクガクしてしまうため，左側だけで算出して置き換えます．
 <div align="center">
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/456d52bd-2d0e-471d-91d2-a87c8e7f6a9c" />
@@ -268,13 +268,13 @@ README.md               プロジェクト概要と手順．
 <summary>🔵 3次元化＋3次元解析 </summary>
 
 ### 3次元復元
-- `src\Scripts\reconstruction\calib\0_trim_calib.py`
+- `src\reconstruction\calib\0_trim_calib.py`
   - 拍手音によって同期とトリミングを行います．出力は，Setting1（動的タスク）とSetting2（静的タスク）の2つです．ちゃんと同期できているかを波形で確認します．
-- `src\Scripts\reconstruction\calib\1_calib.py`
-  - 単眼とステレオのキャリブレーションを行います．再投影誤差が十分に低いかを確認します．うまくいかない場合は `src\Scripts\reconstruction\calib\calib_new.py` も試します．
-- `src\Scripts\reconstruction\calib\2_triangulation.py`
+- `src\reconstruction\calib\1_calib.py`
+  - 単眼とステレオのキャリブレーションを行います．再投影誤差が十分に低いかを確認します．うまくいかない場合は `src\reconstruction\calib\calib_new.py` も試します．
+- `src\reconstruction\calib\2_triangulation.py`
   - 三角測量により3次元座標を出力します．
-- `src\Scripts\reconstruction\calib\3_3d_visual.py`
+- `src\reconstruction\calib\3_3d_visual.py`
   - 出力された座標を3次元空間にプロットします．3次元化がうまくいったかの確認とスライド用です．
 <div align="center">
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/33672e38-2ed7-45ce-8b8a-644c481f91c3" />
@@ -292,7 +292,7 @@ README.md               プロジェクト概要と手順．
 <summary>🟡 TUG試験</summary>
 
 ### フェーズ分割・レーダーチャート・多角的分析
-- `src\4_analysis\TUG\指標算出.py`
+- `src\3_summary_feature\TUG\指標算出.py`
   - フェーズ分割と起立時間，旋回時間，旋回半径，着席時間，総秒数，総歩数，歩幅の比を算出します．
 <div align="center">
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/79487c26-7f43-4a4d-9d4a-7a60c843d625" />
