@@ -274,11 +274,34 @@ README.md               プロジェクト概要と手順．
 ---
 
 ## 🗑 アーカイブ
+<details>
+<summary>ViTPoseのコード</summary>
+git@gitlab.cds.tohoku.ac.jp:neurolab/nkym_subgrp/tracking_solution_cipn/vitpose.git
 
+[ViTPose: Simple Vision Transformer Baselines for Human Pose Estimation](https://arxiv.org/abs/2204.12484)
+
+venv で仮想環境を立ててから<br>
+
+環境構築<br>
+0. nvidia-smiでcudaバージョンを確認
+1. Pytorchをインストール
+[公式](https://pytorch.org/get-started/locally/)でコマンドを確認．<br>
+例:
+```
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu129
+```
+GPUの互換性とかめちゃくちゃめんどい<br>
+新しめのGPUなら割とうまくいく<br>
+[torchインストールの参考1](https://pytorch.org/get-started/previous-versions/)<br>
+[torchインストールの参考2](https://aitoao.com/webrary/pytorch-pip/)<br>
+
+</details>
+
+---
 <details>
 <summary>Mediapipe (現在使用していない)</summary>
-）
-  
+git@gitlab.cds.tohoku.ac.jp:neurolab/nkym_subgrp/tracking_solution_cipn/mediapipe_basic.git
+
 ### 使い方
 1. requirements.txtに記述されたライブラリを作成した仮想環境にインストール
 
