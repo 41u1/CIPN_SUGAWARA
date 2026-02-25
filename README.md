@@ -2,9 +2,22 @@
 CIPN患者の身体機能評価タスクを評価するためのコードです。
 研究室のパソコン上でViTPoseを使って推定したキーポイントの座標について解析を行います。
 
-# 姿勢推定解析パイプライン
+
+## 📁 フォルダ構成と役割
 
 <details open>
+<summary>1. data/</summary>
+<pre>
+0_raw/                  実験で撮った元の動画データ（編集しない原本）．これは患者情報のためオフライン研究室PCで保存．
+1_processed/            MediaPipeやViTPoseの出力（キーポイントCSV・動画）．姿勢推定後のCSVをダウンロードしてここに保存.
+2_time_series_feature/  時系列特徴量（歩行軌跡・関節角度・重心など）の保存．
+3_summary_feature/      要約特徴量（歩幅，速度などの統計量やスカラー値）の保存．
+</pre>
+</details>
+
+---
+
+<details>
 <summary>2. src/ （ソースコードの詳細）</summary>
 
 **【タスク別の色分け凡例】**
@@ -52,6 +65,31 @@ etc/                    その他のスクリプト（3Dポーズ再構築やユ
               └─ 🔵 calib_new.py
 </pre>
 </details>
+
+---
+
+<details>
+<summary>3. configs/</summary>
+<pre>
+paths.yaml              データ・結果フォルダのパス設定（例：./daily_results/results_{date}）．
+model_params.yaml       モデルの設定値（入力サイズ・バッチサイズなど）．
+preprocessing.yaml      前処理パラメータ（フィルタ設定など）．
+</pre>
+</details>
+
+---
+
+<details>
+<summary>4. その他</summary>
+<pre>
+requirements.txt        使用ライブラリ一覧（再現性確保）．
+README.md               プロジェクト概要と手順．
+.vscode/settings.json   VS Codeの設定（整形・仮想環境指定など）．
+.vscode/launch.json     デバッグ実行設定．
+</pre>
+</details>
+
+# 姿勢推定解析パイプライン
 
 ## データ取得
 研究室サーバーからCSVデータをコピーします．
@@ -193,53 +231,6 @@ etc/                    その他のスクリプト（3Dポーズ再構築やユ
 
 </details>
 
-## 📁 フォルダ構成と役割
-
-<details open>
-<summary>1. data/</summary>
-<pre>
-0_raw/                  実験で撮った元の動画データ（編集しない原本）．これは患者情報のためオフライン研究室PCで保存．
-1_processed/            MediaPipeやViTPoseの出力（キーポイントCSV・動画）．姿勢推定後のCSVをダウンロードしてここに保存.
-2_time_series_feature/  時系列特徴量（歩行軌跡・関節角度・重心など）の保存．
-3_summary_feature/      要約特徴量（歩幅，速度などの統計量やスカラー値）の保存．
-</pre>
-</details>
-
----
-
-<details>
-<summary>2. src/</summary>
-<pre>
-1_preprocessing/        姿勢推定や動画前処理（MediaPipe，ViTPoseなど）．
-2_time_series_feature/  時系列特徴量の計算（角度・重心・歩行軌跡など）．
-3_summary_feature/      要約特徴量の計算・抽出．
-4_analysis/             PCA・クラスタリング・グラフ描画など分析処理．
-etc/                    その他のスクリプト（3Dポーズ再構築やユーティリティなど）．
-</pre>
-</details>
-
----
-
-<details>
-<summary>3. configs/</summary>
-<pre>
-paths.yaml              データ・結果フォルダのパス設定（例：./daily_results/results_{date}）．
-model_params.yaml       モデルの設定値（入力サイズ・バッチサイズなど）．
-preprocessing.yaml      前処理パラメータ（フィルタ設定など）．
-</pre>
-</details>
-
----
-
-<details>
-<summary>4. その他</summary>
-<pre>
-requirements.txt        使用ライブラリ一覧（再現性確保）．
-README.md               プロジェクト概要と手順．
-.vscode/settings.json   VS Codeの設定（整形・仮想環境指定など）．
-.vscode/launch.json     デバッグ実行設定．
-</pre>
-</details>
 
 
 # Tracking movie data
