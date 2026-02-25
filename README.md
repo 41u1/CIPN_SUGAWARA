@@ -121,6 +121,10 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 
 - `src\3_summary_feature\4MWALK\箱ひげ図.py`
   - 一般的な歩行パラメータ（歩幅，歩隔，歩行速度，ケイデンス）を箱ひげ図にまとめます．
+  <div align="center">
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/3d862b8f-fae7-44ec-b113-cdd4a994bf8c"/>
+</div>
+
 ## 📁 フォルダ構成と役割
 
 <details open>
