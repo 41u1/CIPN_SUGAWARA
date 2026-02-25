@@ -3,6 +3,8 @@
 CIPN患者の身体機能評価タスクを評価するためのコードです．
 研究室のパソコン上でViTPoseを使って推定したキーポイントの座標について解析を行います．
 
+Users\Kei15\CIPN\CIPN_SUGAWARA
+
 ---
 
 ## 🛠 環境構築とデータ取得
@@ -15,7 +17,7 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 ### 1．リポジトリのクローン
 GitHubからプロジェクトをローカル環境にダウンロードします．
 
-    git clone <git@github.com:41u1/CIPN_SUGAWARA.git>
+   git clone [https://github.com/41u1/CIPN_SUGAWARA.git](https://github.com/41u1/CIPN_SUGAWARA.git)
 
 ### 2．プロジェクトディレクトリへの移動
 クローンして作成されたフォルダ内に移動します．
@@ -361,20 +363,9 @@ GPUの互換性とかめちゃくちゃめんどい<br>
 
 ---
 <details>
-<<<<<<< HEAD
-<summary>3. src/</summary>
-<pre>
-preprocessing/        姿勢推定や動画前処理（これは研究室パソコンでやるから使わない）
-feature_engineering/  特徴量計算（角度・重心・歩行軌跡など）
-reconstruction/       3Dポーズ再構築・可視化
-analysis/             PCA・クラスタリング・グラフ描画など分析処理
-__init__.py           モジュール認識用（空ファイル）
-</pre>
-</details>
-=======
+
 <summary>Mediapipe (現在使用していない)</summary>
 git@gitlab.cds.tohoku.ac.jp:neurolab/nkym_subgrp/tracking_solution_cipn/mediapipe_basic.git
->>>>>>> 5f31ee521e7883dc26558595a3dbcf0c684ecfba
 
 ### 使い方
 1. requirements.txtに記述されたライブラリを作成した仮想環境にインストール
