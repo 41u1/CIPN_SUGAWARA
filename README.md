@@ -130,8 +130,8 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 <details open>
 <summary>1. data/</summary>
 <pre>
-0_raw/                  実験で撮った元の動画データ（編集しない原本）．
-1_processed/            MediaPipeやViTPoseの出力（キーポイントCSV・動画）．
+0_raw/                  実験で撮った元の動画データ（編集しない原本）．これは患者情報のためオフライン研究室PCで保存．
+1_processed/            MediaPipeやViTPoseの出力（キーポイントCSV・動画）．姿勢推定後のCSVをダウンロードしてここに保存.
 2_time_series_feature/  時系列特徴量（歩行軌跡・関節角度・重心など）の保存．
 3_summary_feature/      要約特徴量（歩幅，速度などの統計量やスカラー値）の保存．
 </pre>
@@ -153,30 +153,7 @@ etc/                    その他のスクリプト（3Dポーズ再構築やユ
 ---
 
 <details>
-<summary>3. daily_results/</summary>
-<pre>
-results_{date}/         日々の分析結果を日付ごとに保存．
-  ├─ figures/           グラフ（png，pdfなど）．
-  ├─ tables/            分析結果のCSVや統計表．
-  └─ reports/           まとめレポート（Markdown，PDFなど）．
-</pre>
-</details>
-
----
-
-<details>
-<summary>4. notebooks/</summary>
-<pre>
-exploration.ipynb       データ探索（EDA）・PCA分析などの試行用ノート．
-feature_analysis.ipynb  特徴量（関節角度・歩行周期など）の分析．
-model_evaluation.ipynb  分類・クラスタリングなどモデル評価用．
-</pre>
-</details>
-
----
-
-<details>
-<summary>5. configs/</summary>
+<summary>3. configs/</summary>
 <pre>
 paths.yaml              データ・結果フォルダのパス設定（例：./daily_results/results_{date}）．
 model_params.yaml       モデルの設定値（入力サイズ・バッチサイズなど）．
@@ -187,7 +164,7 @@ preprocessing.yaml      前処理パラメータ（フィルタ設定など）�
 ---
 
 <details>
-<summary>6. その他</summary>
+<summary>4. その他</summary>
 <pre>
 requirements.txt        使用ライブラリ一覧（再現性確保）．
 README.md               プロジェクト概要と手順．
