@@ -21,7 +21,7 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 <summary>2. src/ （ソースコードの詳細）</summary>
 
 **【タスク別の色分け凡例】**
-🟢 ロンベルグ試験　🔵 動的タスク　🟡 TUG試験　🔴 4m歩行
+🟢 ロンベルグ試験　🔵 3次元化＋3次元解析　🟡 TUG試験　🔴 4m歩行
 
 <pre>
 1_preprocessing/        姿勢推定や動画前処理（MediaPipe，ViTPoseなど）．
@@ -100,7 +100,7 @@ README.md               プロジェクト概要と手順．
 ## 🔬 各試験の解析スクリプト詳細
 
 **【タスク別の色分け凡例】**
-🟢 ロンベルグ試験　🔵 動的タスク　🟡 TUG試験　🔴 4m歩行
+🟢 ロンベルグ試験　🔵 3次元化＋3次元解析　🟡 TUG試験　🔴 4m歩行
 
 ---
 
@@ -233,8 +233,14 @@ README.md               プロジェクト概要と手順．
 
 
 
-# Tracking movie data
-cipn患者解析用mediapie
+# 環境構築
+[venvで手軽にPythonの仮想環境を構築しよう](https://qiita.com/shun_sakamoto/items/7944d0ac4d30edf91fde)
+
+---
+
+<details>
+<summary>Mediapipe(現在使用していない)</summary>
+
 ### 使い方
 1. requirements.txtに記述されたライブラリを作成した仮想環境にインストール
 ```
@@ -266,6 +272,6 @@ python main_hand_tracking.py
 - API リファレンス<br>
 [Module:mp](https://ai.google.dev/edge/api/mediapipe/python/mp#classes)<br>
 
-# 環境構築
-[venvで手軽にPythonの仮想環境を構築しよう](https://qiita.com/shun_sakamoto/items/7944d0ac4d30edf91fde)
+</details>
 
+---
