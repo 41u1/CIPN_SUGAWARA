@@ -4,13 +4,70 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 
 # 姿勢推定解析パイプライン
 
+<details open>
+<summary>2. src/ （ソースコードの詳細）</summary>
+
+**【タスク別の色分け凡例】**
+🟢 ロンベルグ試験　🔵 動的タスク　🟡 TUG試験　🔴 4m歩行
+
+<pre>
+1_preprocessing/        姿勢推定や動画前処理（MediaPipe，ViTPoseなど）．
+  （※各種前処理スクリプト）
+
+2_time_series_feature/  時系列特徴量の計算（角度・重心・歩行軌跡など）．
+  ├─ 🟢 GoB_比率考慮版.py
+  ├─ 🟢 GoB_L_only.py
+  └─ 🔵 3D/
+      ├─ 🔵 ANGLE.py
+      └─ 🔵 GoB.py
+
+3_summary_feature/      要約特徴量の計算・抽出．
+  ├─ 🟢 ROMBERG/
+  │   ├─ 🟢 ROMBERG_ratio_filtered.py
+  │   └─ 🟢 narrow_window_variance.py
+  └─ 🔴 4MWALK/
+      ├─ 🔴 step_detection.py
+      └─ 🔴 箱ひげ図.py
+
+4_analysis/             PCA・クラスタリング・グラフ描画など分析処理．
+  ├─ 🟢 重症度plot.py
+  ├─ 🟢 ROMBERG/
+  │   ├─ 🟢 クロフォードテスト_軌跡.py
+  │   ├─ 🟢 重心軌跡比較.py
+  │   └─ 🟢 クロフォードテスト_分散.py
+  └─ 🟡 TUG/
+      ├─ 🟡 指標算出.py
+      ├─ 🟡 レーダー＋凡例.py
+      ├─ 🟡 多角的分析.py
+      └─ 🟡 kiseki.py
+
+etc/                    その他のスクリプト（3Dポーズ再構築やユーティリティなど）．
+  └─ 🔵 Scripts/
+      └─ 🔵 reconstruction/
+          └─ 🔵 calib/
+              ├─ 🔵 0_trim_calib.py
+              ├─ 🔵 1_calib.py
+              ├─ 🔵 2_triangulation.py
+              ├─ 🔵 3_3d_visual.py
+              └─ 🔵 calib_new.py
+</pre>
+</details>
+
 ## データ取得
 研究室サーバーからCSVデータをコピーします．
 - **URL**: `http://10.240.77.18:5000/sharing/UJkwnmlqt` （研究室パソコン用）
 
 ---
 
-## ロンベルグ試験
+## 🔬 各試験の解析スクリプト詳細
+
+**【タスク別の色分け凡例】**
+🟢 ロンベルグ試験　🔵 動的タスク　🟡 TUG試験　🔴 4m歩行
+
+---
+
+<details open>
+<summary>🟢 ロンベルグ試験</summary>
 
 ### 重心座標の算出
 - `src\2_time_series_feature\GoB_比率考慮版.py`
@@ -57,9 +114,12 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/4fa8ce31-08e1-4bd8-8e67-d65bb091c25c" />
 </div>
 
+</details>
+
 ---
 
-## 動的タスク（※現在めぼしい結果は出ていない）
+<details>
+<summary>🔵 動的タスク（※現在めぼしい結果は出ていない）</summary>
 
 ### 3次元復元
 - `src\Scripts\reconstruction\calib\0_trim_calib.py`
@@ -80,9 +140,12 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 - `src\2_time_series_feature\3D\GoB.py`
   - 3次元の重心の座標を求めます．
 
+</details>
+
 ---
 
-## TUG試験
+<details>
+<summary>🟡 TUG試験</summary>
 
 ### フェーズ分割・レーダーチャート・多角的分析
 - `src\4_analysis\TUG\指標算出.py`
@@ -109,9 +172,12 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/7a8ba6c5-28fa-4b27-b3f7-93ac0c49c3a8" />
 </div>
 
+</details>
+
 ---
 
-## 4m歩行
+<details>
+<summary>🔴 4m歩行</summary>
 
 - `src\3_summary_feature\4MWALK\step_detection.py`
   - 接地の検出の可視化用です．処理が結構重いです．
@@ -121,9 +187,11 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 
 - `src\3_summary_feature\4MWALK\箱ひげ図.py`
   - 一般的な歩行パラメータ（歩幅，歩隔，歩行速度，ケイデンス）を箱ひげ図にまとめます．
-  <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/3d862b8f-fae7-44ec-b113-cdd4a994bf8c"/>
+<div align="center">
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/3d862b8f-fae7-44ec-b113-cdd4a994bf8c" />
 </div>
+
+</details>
 
 ## 📁 フォルダ構成と役割
 
