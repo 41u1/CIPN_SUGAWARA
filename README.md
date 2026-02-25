@@ -130,56 +130,57 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 <details open>
 <summary>1. data/</summary>
 <pre>
-raw/        実験で撮った元の動画データ（編集しない原本）
-processed/  MediaPipe や ViTPose の出力（キーポイントCSV・動画）
-features/   特徴量（歩行軌跡・関節角度・重心など）の保存
+0_raw/                  実験で撮った元の動画データ（編集しない原本）．
+1_processed/            MediaPipeやViTPoseの出力（キーポイントCSV・動画）．
+2_time_series_feature/  時系列特徴量（歩行軌跡・関節角度・重心など）の保存．
+3_summary_feature/      要約特徴量（歩幅，速度などの統計量やスカラー値）の保存．
 </pre>
 </details>
 
 ---
 
 <details>
-<summary>2. notebooks/</summary>
+<summary>2. src/</summary>
 <pre>
-exploration.ipynb       データ探索（EDA）・PCA分析などの試行用ノート
-feature_analysis.ipynb  特徴量（関節角度・歩行周期など）の分析
-model_evaluation.ipynb  分類・クラスタリングなどモデル評価用
+1_preprocessing/        姿勢推定や動画前処理（MediaPipe，ViTPoseなど）．
+2_time_series_feature/  時系列特徴量の計算（角度・重心・歩行軌跡など）．
+3_summary_feature/      要約特徴量の計算・抽出．
+4_analysis/             PCA・クラスタリング・グラフ描画など分析処理．
+etc/                    その他のスクリプト（3Dポーズ再構築やユーティリティなど）．
 </pre>
 </details>
 
 ---
 
 <details>
-<summary>3. src/</summary>
+<summary>3. daily_results/</summary>
 <pre>
-preprocessing/        姿勢推定や動画前処理（MediaPipe, ViTPoseなど）
-feature_engineering/  特徴量計算（角度・重心・歩行軌跡など）
-reconstruction/       3Dポーズ再構築・可視化
-analysis/             PCA・クラスタリング・グラフ描画など分析処理
-__init__.py           モジュール認識用（空ファイル）
+results_{date}/         日々の分析結果を日付ごとに保存．
+  ├─ figures/           グラフ（png，pdfなど）．
+  ├─ tables/            分析結果のCSVや統計表．
+  └─ reports/           まとめレポート（Markdown，PDFなど）．
 </pre>
 </details>
 
 ---
 
 <details>
-<summary>4. results_YYYYMMDD/</summary>
+<summary>4. notebooks/</summary>
 <pre>
-figures/  グラフ（png, pdfなど）
-tables/   分析結果のCSVや統計表
-reports/  まとめレポート（Markdown, PDFなど）
+exploration.ipynb       データ探索（EDA）・PCA分析などの試行用ノート．
+feature_analysis.ipynb  特徴量（関節角度・歩行周期など）の分析．
+model_evaluation.ipynb  分類・クラスタリングなどモデル評価用．
 </pre>
 </details>
-
 
 ---
 
 <details>
 <summary>5. configs/</summary>
 <pre>
-paths.yaml          データ・結果フォルダのパス設定（例：./results_{date}）
-model_params.yaml   モデルの設定値（入力サイズ・バッチサイズなど）
-preprocessing.yaml  前処理パラメータ（フィルタ設定など）
+paths.yaml              データ・結果フォルダのパス設定（例：./daily_results/results_{date}）．
+model_params.yaml       モデルの設定値（入力サイズ・バッチサイズなど）．
+preprocessing.yaml      前処理パラメータ（フィルタ設定など）．
 </pre>
 </details>
 
@@ -188,13 +189,12 @@ preprocessing.yaml  前処理パラメータ（フィルタ設定など）
 <details>
 <summary>6. その他</summary>
 <pre>
-requirements.txt        使用ライブラリ一覧（再現性確保）
-README.md               プロジェクト概要と手順
-.vscode/settings.json   VS Code の設定（整形・仮想環境指定など）
-.vscode/launch.json     デバッグ実行設定
+requirements.txt        使用ライブラリ一覧（再現性確保）．
+README.md               プロジェクト概要と手順．
+.vscode/settings.json   VS Codeの設定（整形・仮想環境指定など）．
+.vscode/launch.json     デバッグ実行設定．
 </pre>
-</details><br>
-
+</details>
 
 
 # Tracking movie data
