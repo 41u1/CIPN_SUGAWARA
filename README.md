@@ -56,11 +56,64 @@ GitHubからプロジェクトをローカル環境にダウンロードしま�
 </details>
 
 <details>
-<summary>データ取得</summary>
+<summary>データ取得と姿勢推定の実行手順（ワークフロー）</summary>
 
-研究室サーバーからCSVデータをコピーします．新規データは研究室パソコンを使います．
-- **URL**: `http://10.240.77.18:5000/sharing/UJkwnmlqt` （研究室パソコン用）
+## 🏃 姿勢推定の実行手順（ワークフロー）
 
+研究室のPC（Windows環境）を用いて，iPadで撮影した動画からViTPoseによる姿勢推定を行い，結果のCSVを自身のPCへ移行するまでの流れです．
+
+### 1．動画データの保存（iPadからの転送）
+iPadを直接Type-Cケーブルで研究室のPCに接続し，動画データを転送します．
+
+1. 以下のディレクトリに移動します．
+   `D:/PythonProject_Sugawara/vitpose/Data/raw/`
+2. `CIPN` または `NOCIPN` のフォルダを選択し，該当する被験者番号（例: `P002`）のフォルダを開きます．
+3. 撮影した動画を以下のルールで配置します．カメラの位置関係は下図を参照してください．
+   * **側面カメラの動画**: `C1` フォルダに保存
+   * **正面カメラの動画**: `C2` フォルダに保存
+
+<div align="center">
+  <img width="250" alt="TUG概略図" src="https://github.com/user-attachments/assets/bb4ad52b-59d3-4085-b867-7bd424380213" />
+  <img width="250" alt="ロンベルグ概略図" src="https://github.com/user-attachments/assets/963d58b3-399f-4544-a0e2-7882905200bb" />
+  <br>
+  <sup>カメラの位置関係（左：TUG，右：ロンベルグ試験）</sup>
+</div>
+
+### 2．動画データの前処理（リネーム・同期・トリミング）
+音声波形を利用してカメラ間の同期とトリミングを行います．
+
+1. 以下の前処理スクリプトを実行します．
+   `D:/PythonProject_Sugawara/vitpose/src/データ前処理/片足立ちなし.py`
+   ※ 実施したタスクの内容や順番を変更した場合は，コードを適宜修正してください．（現在は，撮影した時間順に TUG，4MWALK，ROMBERG とリネームする仕様になっています）
+2. 実行時にプロンプトが表示されるので，手順1で動画を保存した「フォルダのパス」と「日付（例：`20260225`）」を入力します．
+3. 処理が完了すると，以下の出力フォルダに結果が保存されます．
+   `D:/PythonProject_Sugawara/vitpose/output/synced_trimmed_CORR/`
+4. 同フォルダ内に出力される `wave_plot_summary.pdf` を開き，音声波形が正しく同期できているか（ズレがないか）を目視で確認します．
+
+### 3．姿勢推定の実行（ViTPose）
+前処理が完了した動画をViTPoseのパイプラインに読み込ませて姿勢推定を行います．
+
+1. 前処理済み動画の入った被験者番号のフォルダ（手順2の出力先）をコピーします．
+2. 以下のディレクトリ内の `CIPN` または `NOCIPN` フォルダにペーストします．
+   `D:/PythonProject_Sugawara/vitpose_pipe/vitpose/Data/movie/`
+3. 以下の設定ファイルを開き，ペーストしたパス名（グループ名と被験者番号）に合わせて中身を書き換えて保存します．
+   * **対象ファイル**: `D:/PythonProject_Sugawara/vitpose_pipe/vitpose/src/config.py`
+   * **変更箇所**: `MOVIE_DIR`，`OUTPUT_MOVIE_DIR`，`OUTPUT_RAW_DIR`
+4. **コマンドプロンプト**を起動します．（※VS CodeのPowerShellではエラーが出る場合があるため，必ずコマンドプロンプトを使用してください）
+5. 仮想環境 `(vitpose_env)` がアクティブになっていることを確認します．
+6. 以下のコマンドでスクリプトのディレクトリに移動し，実行します．
+
+        cd D:/PythonProject_Sugawara/vitpose_pipe/vitpose/src
+        python pip_all.py
+
+### 4．推定結果（CSV）の自身のPCへの移行
+
+1. 姿勢推定が完了すると，以下のフォルダ内にグループ別（CIPN，NOCIPN，STUDENT，STUDENT_WALK）で結果が出力されます．
+   `D:/PythonProject_Sugawara/vitpose_pipe/vitpose/output/raw/`
+2. 出力されたCSVデータをUSBメモリやケーブルを利用して自身のPCにコピーし，本解析プロジェクトの以下のディレクトリに保存してください．
+   `./data/1_processed/`
+
+</details>
 </details>
 
 ---
