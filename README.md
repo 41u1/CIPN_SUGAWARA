@@ -364,7 +364,6 @@ GPUの互換性とかめちゃくちゃめんどい<br>
 
 <summary>Mediapipe (現在使用していない)</summary>
 git@gitlab.cds.tohoku.ac.jp:neurolab/nkym_subgrp/tracking_solution_cipn/mediapipe_basic.git
->>>>>>> 5f31ee521e7883dc26558595a3dbcf0c684ecfba
 
 ### 使い方
 1. requirements.txtに記述されたライブラリを作成した仮想環境にインストール
