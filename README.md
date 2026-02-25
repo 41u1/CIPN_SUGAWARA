@@ -92,13 +92,15 @@ README.md               プロジェクト概要と手順．
 # 姿勢推定解析パイプライン
 ---
 
-## データ取得
+</details>
+<summary>データ取得</summary>
+
 研究室サーバーからCSVデータをコピーします．新規データは研究室パソコンを使います．
 - **URL**: `http://10.240.77.18:5000/sharing/UJkwnmlqt` （研究室パソコン用）
-
+</details>
 ---
 
-<details open>
+<details>
 <summary>🟢 ロンベルグ試験</summary>
 
 ### 重心座標の算出
