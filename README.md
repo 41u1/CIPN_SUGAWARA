@@ -15,7 +15,7 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 ### 1．リポジトリのクローン
 GitHubからプロジェクトをローカル環境にダウンロードします．
 
-    git clone <git@github.com:41u1/CIPN_SUGAWARA.git>
+   git clone [https://github.com/41u1/CIPN_SUGAWARA.git](https://github.com/41u1/CIPN_SUGAWARA.git)
 
 ### 2．プロジェクトディレクトリへの移動
 クローンして作成されたフォルダ内に移動します．
