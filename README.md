@@ -279,8 +279,7 @@ README.md               プロジェクト概要と手順．
 
 <details>
 <summary>Mediapipe (現在使用していない)</summary>
-
-Mediapipeの使い方（中山さんから）
+）
   
 ### 使い方
 1. requirements.txtに記述されたライブラリを作成した仮想環境にインストール
