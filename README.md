@@ -1,21 +1,81 @@
-# CIPN_SUGAWARA
-CIPN患者の身体機能評価タスクを評価するためのコードです。
-研究室のパソコン上でViTPoseを使って推定したキーポイントの座標について解析を行います。
+# CIPN_SUGAWARA (姿勢推定解析パイプライン)
 
+CIPN患者の身体機能評価タスクを評価するためのコードです．
+研究室のパソコン上でViTPoseを使って推定したキーポイントの座標について解析を行います．
 
-# 📁 フォルダ構成と役割
+---
+
+## 🛠 環境構築とデータ取得
+
+<details>
+<summary>コードのクローンと環境構築</summary>
+
+本プロジェクトを実行するためのローカル環境構築手順です．
+
+### 1．リポジトリのクローン
+GitHubからプロジェクトをローカル環境にダウンロードします．
+
+    git clone <リポジトリのURL>
+
+### 2．プロジェクトディレクトリへの移動
+クローンして作成されたフォルダ内に移動します．
+
+    cd <プロジェクト名>
+
+### 3．仮想環境（venv）の作成
+プロジェクト専用のPython仮想環境を作成します．これにより，他のプロジェクトとのパッケージの競合を防ぎます．
+
+    python -m venv venv
+
+※ 最後の `venv` は仮想環境のフォルダ名です．必要に応じて `.venv` などに変更してください．
+
+### 4．仮想環境の有効化
+作成した仮想環境をアクティベートします．お使いのOSに合わせて以下のコマンドを実行してください．
+
+**Windowsの場合:**
+
+    .\venv\Scripts\activate
+
+※ PowerShellを使用していて「スクリプトの実行がシステムで無効になっている」というエラーが出る場合は，一度 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` を実行してから再度アクティベートをお試しください．
+
+**macOS / Linuxの場合:**
+
+    source venv/bin/activate
+
+成功すると，ターミナルのプロンプトの先頭に `(venv)` と表示されます．
+
+### 5．ライブラリのインストール
+仮想環境が有効になっている状態で，`requirements.txt` に記載されている依存パッケージを一括インストールします．
+
+    pip install -r requirements.txt
+
+---
+
+**参考リンク:** [venvで手軽にPythonの仮想環境を構築しよう](https://qiita.com/shun_sakamoto/items/7944d0ac4d30edf91fde)
+
+</details>
+
+<details>
+<summary>データ取得</summary>
+
+研究室サーバーからCSVデータをコピーします．新規データは研究室パソコンを使います．
+- **URL**: `http://10.240.77.18:5000/sharing/UJkwnmlqt` （研究室パソコン用）
+
+</details>
+
+---
+
+## 📁 フォルダ構成と役割
 
 <details>
 <summary>1. data/</summary>
 <pre>
 0_raw/                  実験で撮った元の動画データ（編集しない原本）．これは患者情報のためオフライン研究室PCで保存．
-1_processed/            MediaPipeやViTPoseの出力（キーポイントCSV・動画）．姿勢推定後のCSVをダウンロードしてここに保存.
+1_processed/            MediaPipeやViTPoseの出力（キーポイントCSV・動画）．姿勢推定後のCSVをダウンロードしてここに保存．
 2_time_series_feature/  時系列特徴量（歩行軌跡・関節角度・重心など）の保存．
 3_summary_feature/      要約特徴量（歩幅，速度などの統計量やスカラー値）の保存．
 </pre>
 </details>
-
----
 
 <details>
 <summary>2. src/ （ソースコードの詳細）</summary>
@@ -66,8 +126,6 @@ etc/                    その他のスクリプト（3Dポーズ再構築やユ
 </pre>
 </details>
 
----
-
 <details>
 <summary>3. configs/</summary>
 <pre>
@@ -76,8 +134,6 @@ model_params.yaml       モデルの設定値（入力サイズ・バッチサ�
 preprocessing.yaml      前処理パラメータ（フィルタ設定など）．
 </pre>
 </details>
-
----
 
 <details>
 <summary>4. その他</summary>
@@ -89,18 +145,12 @@ README.md               プロジェクト概要と手順．
 </pre>
 </details>
 
-# 姿勢推定解析パイプライン
 ---
 
-</details>
-<summary>データ取得</summary>
+## 🔬 各試験の解析スクリプト詳細
 
-研究室サーバーからCSVデータをコピーします．新規データは研究室パソコンを使います．
-- **URL**: `http://10.240.77.18:5000/sharing/UJkwnmlqt` （研究室パソコン用）
-</pre>
-</details>
-
----
+**【タスク別の色分け凡例】**
+🟢 ロンベルグ試験　🔵 3次元化＋3次元解析　🟡 TUG試験　🔴 4m歩行
 
 <details>
 <summary>🟢 ロンベルグ試験</summary>
@@ -112,26 +162,26 @@ README.md               プロジェクト概要と手順．
 - `src\2_time_series_feature\GoB_L_only.py`
   - ロンベルグ試験のC1用スクリプトです．右側が映っておらずガクガクしてしまうため，左側だけで算出して置き換えます．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/456d52bd-2d0e-471d-91d2-a87c8e7f6a9c" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/456d52bd-2d0e-471d-91d2-a87c8e7f6a9c](https://github.com/user-attachments/assets/456d52bd-2d0e-471d-91d2-a87c8e7f6a9c)" />
 </div>
 
 ### 軌跡長・凸包面積
 - `src\3_summary_feature\ROMBERG\ROMBERG_ratio_filtered.py`
   - 重心座標から2次元平面への復元を行います．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/983ca2d1-7278-4918-b0dc-bb68214dc9d6" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/983ca2d1-7278-4918-b0dc-bb68214dc9d6](https://github.com/user-attachments/assets/983ca2d1-7278-4918-b0dc-bb68214dc9d6)" />
 </div>
 
 - `src\4_analysis\ROMBERG\クロフォードテスト_軌跡.py`
   - CSVデータを読み込んでEO（開眼），EC（閉眼），ROMBERG Ratioの3つを箱ひげ図として出力します．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/d084036a-ee51-42b4-858e-548fe62d6ed3" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/d084036a-ee51-42b4-858e-548fe62d6ed3](https://github.com/user-attachments/assets/d084036a-ee51-42b4-858e-548fe62d6ed3)" />
 </div>
 
 - `src\4_analysis\ROMBERG\重心軌跡比較.py`
   - スライド用の重心軌跡の可視化図の比較用スクリプトです．表示する患者の試行を選択できます．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/3e5e5002-abf4-46b5-825c-0cb814458d35" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/3e5e5002-abf4-46b5-825c-0cb814458d35](https://github.com/user-attachments/assets/3e5e5002-abf4-46b5-825c-0cb814458d35)" />
 </div>
 
 ### 分散
@@ -140,19 +190,17 @@ README.md               プロジェクト概要と手順．
 - `src\4_analysis\ROMBERG\クロフォードテスト_分散.py`
   - CSVデータを読み込んでEO，EC，ROMBERG Ratioの3つを箱ひげ図として出力します．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/8dcc89ea-6a34-4574-9710-d1c9fe51812f" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/8dcc89ea-6a34-4574-9710-d1c9fe51812f](https://github.com/user-attachments/assets/8dcc89ea-6a34-4574-9710-d1c9fe51812f)" />
 </div>
 
 ### 重症度比較
 - `src\4_analysis\重症度plot.py`
   - 重症度指標とロンベルグ率との比較を行うコードです．入力は手動で行います．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/4fa8ce31-08e1-4bd8-8e67-d65bb091c25c" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/4fa8ce31-08e1-4bd8-8e67-d65bb091c25c](https://github.com/user-attachments/assets/4fa8ce31-08e1-4bd8-8e67-d65bb091c25c)" />
 </div>
 
 </details>
-
----
 
 <details>
 <summary>🔵 3次元化＋3次元解析 </summary>
@@ -167,7 +215,7 @@ README.md               プロジェクト概要と手順．
 - `src\Scripts\reconstruction\calib\3_3d_visual.py`
   - 出力された座標を3次元空間にプロットします．3次元化がうまくいったかの確認とスライド用です．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/33672e38-2ed7-45ce-8b8a-644c481f91c3" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/33672e38-2ed7-45ce-8b8a-644c481f91c3](https://github.com/user-attachments/assets/33672e38-2ed7-45ce-8b8a-644c481f91c3)" />
 </div>
 
 ### 3D解析（3次元化したデータを活用）
@@ -178,8 +226,6 @@ README.md               プロジェクト概要と手順．
 
 </details>
 
----
-
 <details>
 <summary>🟡 TUG試験</summary>
 
@@ -187,30 +233,28 @@ README.md               プロジェクト概要と手順．
 - `src\4_analysis\TUG\指標算出.py`
   - フェーズ分割と起立時間，旋回時間，旋回半径，着席時間，総秒数，総歩数，歩幅の比を算出します．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/79487c26-7f43-4a4d-9d4a-7a60c843d625" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/79487c26-7f43-4a4d-9d4a-7a60c843d625](https://github.com/user-attachments/assets/79487c26-7f43-4a4d-9d4a-7a60c843d625)" />
 </div>
 
 - `src\4_analysis\TUG\レーダー＋凡例.py`
   - 7つの指標のレーダーチャートを作成します（`tug_metrics_averaged.csv` を読み込みます）．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/6acb3360-fba8-4bd1-988b-6d9d8f421f56" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/6acb3360-fba8-4bd1-988b-6d9d8f421f56](https://github.com/user-attachments/assets/6acb3360-fba8-4bd1-988b-6d9d8f421f56)" />
 </div>
 
 - `src\4_analysis\TUG\多角的分析.py`
   - 7つの指標についてPCA分析などの多角的な分析を行います．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/71920d01-efb2-4ffb-99bd-d0b0d8135c96" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/71920d01-efb2-4ffb-99bd-d0b0d8135c96](https://github.com/user-attachments/assets/71920d01-efb2-4ffb-99bd-d0b0d8135c96)" />
 </div>
 
 - `src\4_analysis\TUG\kiseki.py`
   - 腰座標の水平面上の軌跡をフェーズ分割で色分けします．分割がうまくいっているかの確認とスライド用です．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/7a8ba6c5-28fa-4b27-b3f7-93ac0c49c3a8" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/7a8ba6c5-28fa-4b27-b3f7-93ac0c49c3a8](https://github.com/user-attachments/assets/7a8ba6c5-28fa-4b27-b3f7-93ac0c49c3a8)" />
 </div>
 
 </details>
-
----
 
 <details>
 <summary>🔴 4m歩行</summary>
@@ -218,108 +262,53 @@ README.md               プロジェクト概要と手順．
 - `src\3_summary_feature\4MWALK\step_detection.py`
   - 接地の検出の可視化用です．処理が結構重いです．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/c120d0d6-6dd1-4d57-a6b1-59b1c7df5eca" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/c120d0d6-6dd1-4d57-a6b1-59b1c7df5eca](https://github.com/user-attachments/assets/c120d0d6-6dd1-4d57-a6b1-59b1c7df5eca)" />
 </div>
 
 - `src\3_summary_feature\4MWALK\箱ひげ図.py`
   - 一般的な歩行パラメータ（歩幅，歩隔，歩行速度，ケイデンス）を箱ひげ図にまとめます．
 <div align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/3d862b8f-fae7-44ec-b113-cdd4a994bf8c" />
+  <img width="500" alt="image" src="[https://github.com/user-attachments/assets/3d862b8f-fae7-44ec-b113-cdd4a994bf8c](https://github.com/user-attachments/assets/3d862b8f-fae7-44ec-b113-cdd4a994bf8c)" />
 </div>
 
 </details>
 
 ---
-<details>
 
-<summary>コードのクローンと環境構築</summary>
-
-## 🛠 環境構築の手順
-
-本プロジェクトを実行するためのローカル環境構築手順です．
-
-### 1．リポジトリのクローン
-本プロジェクトを実行するためのローカル環境構築手順です．
-
-### 1．リポジトリのクローン
-GitHubからプロジェクトをローカル環境にダウンロードします．
-
-    git clone <リポジトリのURL>
-
-### 2．プロジェクトディレクトリへの移動
-クローンして作成されたフォルダ内に移動します．
-
-    cd <プロジェクト名>
-
-### 3．仮想環境（venv）の作成
-プロジェクト専用のPython仮想環境を作成します．これにより，他のプロジェクトとのパッケージの競合を防ぎます．
-
-    python -m venv venv
-
-※ 最後の `venv` は仮想環境のフォルダ名です．必要に応じて `.venv` などに変更してください．
-
-### 4．仮想環境の有効化
-作成した仮想環境をアクティベートします．お使いのOSに合わせて以下のコマンドを実行してください．
-
-**Windowsの場合:**
-
-    .\venv\Scripts\activate
-
-※ PowerShellを使用していて「スクリプトの実行がシステムで無効になっている」というエラーが出る場合は，一度 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` を実行してから再度アクティベートをお試しください．
-
-**macOS / Linuxの場合:**
-
-    source venv/bin/activate
-
-成功すると，ターミナルのプロンプトの先頭に `(venv)` と表示されます．
-
-### 5．ライブラリのインストール
-仮想環境が有効になっている状態で，`requirements.txt` に記載されている依存パッケージを一括インストールします．
-
-    pip install -r requirements.txt
-
----
-
-[venvで手軽にPythonの仮想環境を構築しよう](https://qiita.com/shun_sakamoto/items/7944d0ac4d30edf91fde)
-
-</details>
----
+## 🗑 アーカイブ
 
 <details>
-<summary>Mediapipe(現在使用していない)</summary>
-Mediapipeの使い方(中山さんから)
+<summary>Mediapipe (現在使用していない)</summary>
+
+Mediapipeの使い方（中山さんから）
   
 ### 使い方
 1. requirements.txtに記述されたライブラリを作成した仮想環境にインストール
-```
-pip install -r requirements.txt
-```
+
+        pip install -r requirements.txt
+
 2. dataディレクトリまたはhand_dataディレクトリにトラッキングしたい動画を配置
 
-3. src内でプログラムを実行<br>
-姿勢のトラッキング
-```
-python main_tracking.py
-```
-手のトラッキング
-```
-python main_hand_tracking.py
-```
+3. src内でプログラムを実行
+
+   **姿勢のトラッキング**
+        
+        python main_tracking.py
+        
+   **手のトラッキング**
+
+        python main_hand_tracking.py
+
 4. outputディレクトリに結果の動画およびcsvが出力される
 
-
 #### 参考リンク
-- body tracking<br>
-[Python 用姿勢ランドマーク検出ガイド](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker/python?hl=ja)<br>
-[姿勢ランドマーク検出ガイド](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker?hl=ja)<br>
-
-- hand tracking<br>
-[Python 用手のランドマーク検出ガイド](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker/python?hl=ja#image)<br>
-[手のランドマーク検出ガイド](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker/index?hl=ja#models)<br>
-
-- API リファレンス<br>
-[Module:mp](https://ai.google.dev/edge/api/mediapipe/python/mp#classes)<br>
+- **body tracking**
+  - [Python 用姿勢ランドマーク検出ガイド](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker/python?hl=ja)
+  - [姿勢ランドマーク検出ガイド](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker?hl=ja)
+- **hand tracking**
+  - [Python 用手のランドマーク検出ガイド](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker/python?hl=ja#image)
+  - [手のランドマーク検出ガイド](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker/index?hl=ja#models)
+- **API リファレンス**
+  - [Module:mp](https://ai.google.dev/edge/api/mediapipe/python/mp#classes)
 
 </details>
-
----
