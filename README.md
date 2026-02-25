@@ -148,41 +148,45 @@ iPadを直接Type-Cケーブルで研究室のPCに接続し，動画データ�
   （※各種前処理スクリプト）
 
 2_time_series_feature/  時系列特徴量の計算（角度・重心・歩行軌跡など）．
-  ├─ 🟢 GoB_比率考慮版.py
-  ├─ 🟢 GoB_L_only.py
-  └─ 🔵 3D/
-      ├─ 🔵 ANGLE.py
-      └─ 🔵 GoB.py
+  ├─ 🔵 3D/
+  │   ├─ 🔵 ANGLE.py
+  │   └─ 🔵 GoB.py
+  └─ 🟢 ROMBERG/
+      ├─ 🟢 GoB_L_only.py
+      └─ 🟢 GoB_比率考慮版.py
 
 3_summary_feature/      要約特徴量の計算・抽出．
+  ├─ 🔴 4MWALK/
+  │   ├─ 🔴 step_detection.py
+  │   └─ 🔴 箱ひげ図.py
   ├─ 🟢 ROMBERG/
-  │   ├─ 🟢 ROMBERG_ratio_filtered.py
-  │   └─ 🟢 narrow_window_variance.py
-  └─ 🔴 4MWALK/
-      ├─ 🔴 step_detection.py
-      └─ 🔴 箱ひげ図.py
+  │   ├─ 🟢 narrow_window_variance.py
+  │   └─ 🟢 ROMBERG_ratio_filtered.py
+  ├─ 🟡 TUG/
+  │   └─ 🟡 指標算出.py
+  └─ その他/
 
 4_analysis/             PCA・クラスタリング・グラフ描画など分析処理．
-  ├─ 🟢 重症度plot.py
+  ├─ 🔴 4MWALK/
+  │   └─ 🔴 箱ひげ図.py
   ├─ 🟢 ROMBERG/
   │   ├─ 🟢 クロフォードテスト_軌跡.py
-  │   ├─ 🟢 重心軌跡比較.py
-  │   └─ 🟢 クロフォードテスト_分散.py
+  │   ├─ 🟢 クロフォードテスト_分散.py
+  │   ├─ 🟢 重症度plot.py
+  │   └─ 🟢 重心軌跡比較.py
   └─ 🟡 TUG/
-      ├─ 🟡 指標算出.py
+      ├─ 🟡 kiseki.py
       ├─ 🟡 レーダー＋凡例.py
-      ├─ 🟡 多角的分析.py
-      └─ 🟡 kiseki.py
+      └─ 🟡 多角的分析.py
 
 etc/                    その他のスクリプト（3Dポーズ再構築やユーティリティなど）．
-  └─ 🔵 Scripts/
-      └─ 🔵 reconstruction/
-          └─ 🔵 calib/
-              ├─ 🔵 0_trim_calib.py
-              ├─ 🔵 1_calib.py
-              ├─ 🔵 2_triangulation.py
-              ├─ 🔵 3_3d_visual.py
-              └─ 🔵 calib_new.py
+  └─ 🔵 Reconstruction/
+      └─ 🔵 calib/
+          ├─ 🔵 0_trim_calib.py
+          ├─ 🔵 1_calib.py
+          ├─ 🔵 2_triangulation.py
+          ├─ 🔵 3_3d_visual.py
+          └─ 🔵 calib_new.py
 </pre>
 </details>
 
