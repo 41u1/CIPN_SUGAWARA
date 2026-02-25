@@ -73,12 +73,12 @@ iPadを直接Type-Cケーブルで研究室のPCに接続し，動画データ�
    * **正面カメラの動画**: `C2` フォルダに保存
 
 <div align="center">
-<table>
-  <tr bgcolor="#FFFFFF">
-    <td align="center" style="border: none;">
+<table bgcolor="white">
+  <tr>
+    <td align="center">
       <img width="250" alt="TUG概略図" src="https://github.com/user-attachments/assets/bb4ad52b-59d3-4085-b867-7bd424380213" />
     </td>
-    <td align="center" style="border: none;">
+    <td align="center">
       <img width="250" alt="ロンベルグ概略図" src="https://github.com/user-attachments/assets/963d58b3-399f-4544-a0e2-7882905200bb" />
     </td>
   </tr>
