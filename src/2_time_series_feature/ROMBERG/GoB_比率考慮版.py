@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # === パス設定 ===
-base_path = "C:/Users/yuich/python_project/project_analysis_main_research"
+base_path = r"C:/Users/yuich/python_project/project_analysis_main_research"
 input_root = os.path.join(base_path, "data", "1_processed", "main_research")
 output_root = os.path.join(base_path, r"data\2_time_series_feature\main_research\CoG")
 target_condition = "NOCIPN"
@@ -13,7 +13,7 @@ target_condition = "NOCIPN"
 # 被験者IDの指定 
 # 特定の被験者のみ処理したい場合はここにIDを記入（例: "P002"）
 # ※ 全員分処理したい場合は None または "" (空文字) にしてください
-target_subject_id = "P002" 
+target_subject_id = "" 
 
 
 input_dir = os.path.join(input_root, target_condition)

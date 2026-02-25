@@ -48,7 +48,7 @@ os.makedirs(OUTPUT_ROOT, exist_ok=True)
 # ---------------------------------------------------------
 # 2. 定義
 # ---------------------------------------------------------
-GROUPS = ["NOCIPN"]
+GROUPS = ["NOCIPN","CIPN","STUDENT"]
 TASKS = ["ROMBERG"]
 
 ROMBERG_CONDS = ["EO", "EC"]
