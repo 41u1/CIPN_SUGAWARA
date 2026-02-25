@@ -3,7 +3,7 @@ CIPN患者の身体機能評価タスクを評価するためのコードです�
 研究室のパソコン上でViTPoseを使って推定したキーポイントの座標について解析を行います。
 
 
-## 📁 フォルダ構成と役割
+# 📁 フォルダ構成と役割
 
 <details open>
 <summary>1. data/</summary>
@@ -225,16 +225,66 @@ README.md               プロジェクト概要と手順．
 
 </details>
 
+---
+<details>
 
+<summary>コードのクローンと環境構築</summary>
 
-# 環境構築
+## 🛠 環境構築の手順
+
+本プロジェクトを実行するためのローカル環境構築手順です．
+
+### 1．リポジトリのクローン
+本プロジェクトを実行するためのローカル環境構築手順です．
+
+### 1．リポジトリのクローン
+GitHubからプロジェクトをローカル環境にダウンロードします．
+
+    git clone <リポジトリのURL>
+
+### 2．プロジェクトディレクトリへの移動
+クローンして作成されたフォルダ内に移動します．
+
+    cd <プロジェクト名>
+
+### 3．仮想環境（venv）の作成
+プロジェクト専用のPython仮想環境を作成します．これにより，他のプロジェクトとのパッケージの競合を防ぎます．
+
+    python -m venv venv
+
+※ 最後の `venv` は仮想環境のフォルダ名です．必要に応じて `.venv` などに変更してください．
+
+### 4．仮想環境の有効化
+作成した仮想環境をアクティベートします．お使いのOSに合わせて以下のコマンドを実行してください．
+
+**Windowsの場合:**
+
+    .\venv\Scripts\activate
+
+※ PowerShellを使用していて「スクリプトの実行がシステムで無効になっている」というエラーが出る場合は，一度 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` を実行してから再度アクティベートをお試しください．
+
+**macOS / Linuxの場合:**
+
+    source venv/bin/activate
+
+成功すると，ターミナルのプロンプトの先頭に `(venv)` と表示されます．
+
+### 5．ライブラリのインストール
+仮想環境が有効になっている状態で，`requirements.txt` に記載されている依存パッケージを一括インストールします．
+
+    pip install -r requirements.txt
+
+---
+
 [venvで手軽にPythonの仮想環境を構築しよう](https://qiita.com/shun_sakamoto/items/7944d0ac4d30edf91fde)
 
+</details>
 ---
 
 <details>
 <summary>Mediapipe(現在使用していない)</summary>
-
+Mediapipeの使い方(中山さんから)
+  
 ### 使い方
 1. requirements.txtに記述されたライブラリを作成した仮想環境にインストール
 ```
