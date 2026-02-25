@@ -119,7 +119,7 @@ etc/                    その他のスクリプト（3Dポーズ再構築やユ
 ---
 
 <details>
-<summary>🔵 動的タスク（※現在めぼしい結果は出ていない）</summary>
+<summary>🔵 3次元化＋3次元解析 </summary>
 
 ### 3次元復元
 - `src\Scripts\reconstruction\calib\0_trim_calib.py`
