@@ -14,8 +14,8 @@ from scipy import stats
 # ==========================================
 # Settings: Output and Input Paths
 # ==========================================
-OUTPUT_BASE_DIR = r"C:\Users\yuich\python_project\project_analysis_main_research\daily_results\20260224\4M\walk_analysis_normalized_ratio_with_stats"
-INPUT_ROOT_DIR = r'C:\Users\yuich\python_project\project_analysis_main_research\data\1_processed\3D_Result' 
+OUTPUT_BASE_DIR = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\daily_results\20260227\4M\walk_analysis_normalized_ratio_with_stats"
+INPUT_ROOT_DIR = r'C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\1_processed\3D_Result' 
 
 plt.rcParams['font.family'] = 'MS Gothic'
 
@@ -236,11 +236,12 @@ def draw_overlapping_boxplots(df, plot_items, condition_title, output_filename):
     if df.empty: return
     
     num_metrics = len(plot_items)
-    fig, axes = plt.subplots(1, num_metrics, figsize=(10 * num_metrics + 2, 10))
-    if num_metrics == 1: axes = [axes]
+    # --- 修正点1: 2x2 のグリッドに変更 ---
+    fig, axes = plt.subplots(2, 2, figsize=(22, 18)) 
+    axes_flat = axes.flatten() # 2次元配列を1次元に変換してループしやすくする
     
     for i, col in enumerate(plot_items):
-        ax = axes[i]
+        ax = axes_flat[i]
         
         vals_student = df[df['Group'] == 'Student'][col].dropna()
         vals_cipn    = df[df['Group'] == 'CIPN'][col].dropna()
@@ -258,7 +259,7 @@ def draw_overlapping_boxplots(df, plot_items, condition_title, output_filename):
                         boxprops=dict(facecolor="#FFCCCC", edgecolor="red", alpha=0.7, linewidth=3),
                         showfliers=False, zorder=2)
 
-        # --- 散布図プロット（個別有意差の計算付き） ---
+        # --- 散布図プロット ---
         np.random.seed(42)
         control_array = vals_student.values
         
@@ -289,13 +290,18 @@ def draw_overlapping_boxplots(df, plot_items, condition_title, output_filename):
         plot_scatter_with_sig(vals_cipn, 'red', is_control=False)       
 
         # --- 軸設定 ---
-        ax.set_title(col, fontsize=35, fontweight="bold", pad=20)
-        ylabel_text = col if "Ratio" not in condition_title else f"Ratio ({col})"
-        ax.set_ylabel(ylabel_text, fontsize=30)
-        ax.set_xlabel("Box: Green=Control, Red=CIPN", color="#333333", fontsize=20)
+        ax.set_title(col, fontsize=45, fontweight="bold", pad=20)
+        ax.tick_params(axis='y', labelsize=35)
+        ylabel_text = col if "Ratio" not in condition_title else f"Ratio"
+        ax.set_ylabel(ylabel_text, fontsize=35)
+        ax.set_xlabel("Box: Green=Control, Red=CIPN", color="#333333", fontsize=30)
         ax.set_xticks([])
         sns.despine(ax=ax, left=False, bottom=True, top=True, right=True)
         ax.grid(axis='y', linestyle='--', alpha=0.5)
+
+    # --- 修正点2: 4つ以上のパネルがない場合の軸を消す (念のため) ---
+    for j in range(i + 1, len(axes_flat)):
+        fig.delaxes(axes_flat[j])
 
     # --- 凡例設定 ---
     custom_lines = [
@@ -307,12 +313,14 @@ def draw_overlapping_boxplots(df, plot_items, condition_title, output_filename):
         Line2D([0], [0], marker='D', color='w', markerfacecolor='gray', markeredgecolor='k', markersize=20, label='Sig (p<0.05)')
     ]
 
-    fig.legend(handles=custom_lines, loc='center left', bbox_to_anchor=(1.0, 0.5), 
+    # 凡例の位置を右側に調整
+    fig.legend(handles=custom_lines, loc='center left', bbox_to_anchor=(0.98, 0.5), 
                title="Legend", frameon=True, fancybox=True, borderpad=1, fontsize=24, title_fontsize=26)
     
-    plt.suptitle(condition_title, fontsize=40, fontweight='bold', y=1.05)
+    plt.suptitle(condition_title, fontsize=40, fontweight='bold', y=1.02)
     plt.tight_layout()
-    plt.subplots_adjust(right=0.95)
+    # 凡例が被らないよう右側にマージンを空ける
+    plt.subplots_adjust(right=0.95, hspace=0.3) 
     
     plt.savefig(output_filename, dpi=300, bbox_inches="tight")
     plt.close()

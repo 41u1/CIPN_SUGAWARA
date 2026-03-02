@@ -9,7 +9,7 @@ from scipy.signal import savgol_filter  # ★追加
 # =========================================
 # PATH
 # =========================================
-BASE = r"C:/Users/yuich/python_project/project_analysis_main_research"
+BASE = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA"
 
 INPUT_ROOT  = os.path.join(BASE, r"data/2_time_series_feature/main_research/CoG")
 OUTPUT_ROOT = os.path.join(BASE, r"daily_results\20260210\ROMBERG_Variance")

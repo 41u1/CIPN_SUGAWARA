@@ -13,10 +13,10 @@ from scipy import stats
 # Settings: Output and Input Paths
 # ==========================================
 # Output folder
-OUTPUT_BASE_DIR = r"C:\Users\yuich\python_project\project_analysis_main_research\daily_results\20260224\4M\walk_analysis_normalized_ratio_with_stats"
+OUTPUT_BASE_DIR = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\daily_results\20260224\4M\walk_analysis_normalized_ratio_with_stats"
 
 # Input data root folder
-INPUT_ROOT_DIR = r'C:\Users\yuich\python_project\project_analysis_main_research\data\1_processed\3D_Result' 
+INPUT_ROOT_DIR = r'C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\1_processed\3D_Result' 
 
 # フォント設定（文字化け防止・Windows用）
 plt.rcParams['font.family'] = 'MS Gothic'

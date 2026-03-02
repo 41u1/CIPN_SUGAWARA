@@ -9,13 +9,13 @@ from tqdm import tqdm
 # === 設定エリア ===========================================
 # ==========================================================
 # 1. データが入っている親フォルダ
-DATA_ROOT_DIR = r"C:\Users\yuich\python_project\project_analysis_main_research\data\1_processed\main_research\STUDENT\P008"
+DATA_ROOT_DIR = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\1_processed\main_research\STUDENT\P008"
 
 # 2. ステレオパラメータファイルのパス
-CALIB_PARAM_PATH = r"C:\Users\yuich\python_project\project_analysis_main_research\data/1_processed/calib_trimed/clib/1218_STUDENT_WALK_P006/Setting1/camera_params_stereo.npz"
+CALIB_PARAM_PATH = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data/1_processed/calib_trimed/clib/1218_STUDENT_WALK_P006/Setting1/camera_params_stereo.npz"
 
 # 3. 結果を出力するフォルダ
-OUTPUT_ROOT_DIR = r"C:\Users\yuich\python_project\project_analysis_main_research\data\1_processed\3D_Result\STUDENT\P008"
+OUTPUT_ROOT_DIR = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\1_processed\3D_Result\STUDENT\P008"
 
 # ==========================================================
 # === クラス定義: 3D計算機 =================================

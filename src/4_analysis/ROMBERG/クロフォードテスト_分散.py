@@ -11,7 +11,7 @@ import matplotlib.patches as patches
 # =========================================================
 # 1. 設定 (SETTINGS)
 # =========================================================
-BASE_ROOT = r"C:\Users\yuich\python_project\project_analysis_main_research"
+BASE_ROOT = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA"
 
 # 分散の集計CSVのパス
 VARIANCE_SUMMARY_FILE = os.path.join(BASE_ROOT, r"data\3_summary_feature\ROMBERG_Variance\summary\ROMBERG_AllVariance_summary.csv")

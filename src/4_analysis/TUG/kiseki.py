@@ -10,8 +10,8 @@ from scipy.signal import butter, filtfilt
 # ==========================================
 # 設定
 # ==========================================
-OUTPUT_BASE_DIR = r"C:\Users\yuich\python_project\project_analysis_main_research\daily_results\20260224\trajectory_3m_x_only"
-INPUT_ROOT_DIR = r'C:\Users\yuich\python_project\project_analysis_main_research\data\1_processed\3D_Result' 
+OUTPUT_BASE_DIR = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\daily_results\20260224\trajectory_3m_x_only"
+INPUT_ROOT_DIR = r'C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\1_processed\3D_Result' 
 
 # 閾値設定
 TARGET_DISTANCE_X = 3.0  # X方向の距離閾値

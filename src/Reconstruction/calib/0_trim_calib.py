@@ -9,11 +9,11 @@ from natsort import natsorted
 # === 設定エリア ===========================================
 # ==========================================================
 # 実際に使用しているパスに合わせて書き換えてください
-TARGET_ROOT_DIR = r"C:\Users\yuich\python_project\project_analysis_main_research\data/0_raw/clib/NOCIPN/P002"
+TARGET_ROOT_DIR = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data/0_raw/clib/NOCIPN/P002"
 
 # FFmpegのパス 
-FFMPEG_PATH = r"C:\Users\yuich\python_project\project_analysis_main_research\data\etc\ffmpeg\bin\ffmpeg.exe"
-OUTPUT_ROOT = r"C:\Users\yuich\python_project\project_analysis_main_research\data\1_processed\calib_trimed"
+FFMPEG_PATH = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\etc\ffmpeg\bin\ffmpeg.exe"
+OUTPUT_ROOT = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\1_processed\calib_trimed"
 
 SR, FPS, HEAD_SEC = 44100, 60, 10
 tempfile.tempdir = r"C:\Temp_FFmpeg" # 必要に応じて変更

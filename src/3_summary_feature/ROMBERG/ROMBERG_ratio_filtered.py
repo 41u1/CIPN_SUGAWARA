@@ -39,7 +39,7 @@ def apply_sg_filter(df, win=21, poly=3):
 # ---------------------------------------------------------
 # 1. Base Root
 # ---------------------------------------------------------
-BASE_ROOT = r"C:\Users\yuich\python_project\project_analysis_main_research"
+BASE_ROOT = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA"
 
 INPUT_ROOT = os.path.join(BASE_ROOT, r"data\2_time_series_feature\main_research\CoG")
 OUTPUT_ROOT = os.path.join(BASE_ROOT, r"data\3_summary_feature\ROMBERG_ratio")

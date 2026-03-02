@@ -9,10 +9,10 @@ from tqdm import tqdm
 # ==============================================================================
 
 # ★重要: グループフォルダ(STUDENT, CIPNなど)が格納されている親フォルダを指定してください
-INPUT_ROOT = r"C:\Users\yuich\python_project\project_analysis_main_research\data\1_processed\main_research"
+INPUT_ROOT = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\1_processed\main_research"
 
 # 出力先
-OUTPUT_ROOT = r"C:/Users/yuich/python_project/project_analysis_main_research/data/2_time_series_feature/main_research/AoJ"
+OUTPUT_ROOT = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data/2_time_series_feature/main_research/AoJ"
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
 
 # ------------------------------------------------------------------

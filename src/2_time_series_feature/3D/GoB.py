@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 # === パス設定 ===
 # 基本パス（環境に合わせて変更してください）
-base_path = "C:/Users/yuich/python_project/project_analysis_main_research"
+base_path = "C:\Users\Kei15\CIPN\CIPN_SUGAWARA"
 
 # 入力・出力フォルダ
 input_root = os.path.join(base_path, "data", "1_processed", "3D_Result")

@@ -9,7 +9,7 @@ from matplotlib.lines import Line2D
 # =========================================================
 # 1. 設定 (SETTINGS)
 # =========================================================
-BASE_ROOT = r"C:\Users\yuich\python_project\project_analysis_main_research"
+BASE_ROOT = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA"
 SUMMARY_ROOT = os.path.join(BASE_ROOT, r"data/3_summary_feature/ROMBERG_ratio")
 
 # 出力先

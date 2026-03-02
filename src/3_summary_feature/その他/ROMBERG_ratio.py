@@ -9,7 +9,7 @@ from scipy.spatial import ConvexHull
 # ---------------------------------------------------------
 # 1. Base Root
 # ---------------------------------------------------------
-BASE_ROOT = r"C:\Users\yuich\python_project\project_analysis_main_research"
+BASE_ROOT = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA"
 
 # CoG の位置（あなたの構造）
 INPUT_ROOT = os.path.join(BASE_ROOT, r"data\2_time_series_feature\main_research\CoG")

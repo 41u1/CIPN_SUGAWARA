@@ -28,7 +28,7 @@ subject_B = {
 # 【設定3】その他の共通設定
 TASK = "ROMBERG"
 TRIAL = "T1"  # 1回目の試行のみ
-BASE_ROOT = r"C:\Users\yuich\python_project\project_analysis_main_research"
+BASE_ROOT = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA"
 
 # ---------------------------------------------------------
 # 内部設定（変更不要）

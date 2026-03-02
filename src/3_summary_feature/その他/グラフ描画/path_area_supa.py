@@ -6,10 +6,10 @@ import os
 # ============================
 # 1. CSV パス
 # ============================
-csv_path = r"C:\Users\yuich\python_project\project_analysis_main_research\daily_results\20251201\KISEKI\STUDENT_CORR\ROMBERG\filtered_summary\STUDENT_CORR_ROMBERG_summary.csv"
+csv_path = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\daily_results\20251201\KISEKI\STUDENT_CORR\ROMBERG\filtered_summary\STUDENT_CORR_ROMBERG_summary.csv"
 
 # 出力フォルダ
-save_dir = r"C:\Users\yuich\python_project\project_analysis_main_research\daily_results\20251201\KISEKI"
+save_dir = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\daily_results\20251201\KISEKI"
 os.makedirs(save_dir, exist_ok=True)
 
 # ============================

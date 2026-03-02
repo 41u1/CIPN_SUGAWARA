@@ -29,8 +29,8 @@ LINE_WIDTH_GRID = 3.0     # グリッド線の太さ
 # ==========================================
 # 設定 (Settings)
 # ==========================================
-OUTPUT_BASE_DIR = r"C:\Users\yuich\python_project\project_analysis_main_research\daily_results\20260223\TUG\tug_final_ratio_metric/final_svg"
-INPUT_ROOT_DIR = r'C:\Users\yuich\python_project\project_analysis_main_research\data\1_processed\3D_Result' 
+OUTPUT_BASE_DIR = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA\daily_results\20260223\TUG\tug_final_ratio_metric/final_svg"
+INPUT_ROOT_DIR = r'C:\Users\Kei15\CIPN\CIPN_SUGAWARA\data\1_processed\3D_Result' 
 AVG_CSV_PATH = os.path.join(OUTPUT_BASE_DIR, 'tug_metrics_averaged.csv')
 EXCLUDE_SUBJECTS = ["P007",'P008']
 
