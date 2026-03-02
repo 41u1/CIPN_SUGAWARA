@@ -365,8 +365,7 @@ README.md               プロジェクト概要と手順．
      * `ROMBERG_Variance/`:重心の分散データ（`ROMBERG_AllVariance_summary.csv`を使用）
      * `ROMBERG_ratio/`:軌跡長・凸包面積のプロット・CSV（フィルター「あり」を使用）
      * `CoG/`: 2次元の重心位置（CSV）．setting2の静止姿勢を前提とした算出法のため，ロンベルグ試験専用．（被験者C1については左半身のデータのみから算出）
-
-　* **3D/**
+  * **3D/**
      * `3D_result/`: 3次元に復元した後の3次元関節座標（CSV）
      * `AoJ_3D/`: 3次元の関節角度（CSV） ※卒論では未使用
      * `CoM_3D/`: 3次元の重心座標（CSV）．歩行タスク（setting1）用．※卒論では未使用
