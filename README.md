@@ -340,6 +340,8 @@ README.md               プロジェクト概要と手順．
 
 ## 研究室サーバ
 <details>
+<summary>データ内容</summary>
+
 ### 01_Thesis/
 卒業論文の執筆および提出に関するデータ群です．
 * `卒業論文_latex.zip`: 卒論のLaTeXソースコードと画像データ一式
