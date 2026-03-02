@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # === パス設定 ===
-base_path = r"C:\Users\yuich\python_project\project_analysis_main_research"
+base_path = r"C:\Users\Kei15\CIPN\CIPN_SUGAWARA"
 input_base = os.path.join(base_path, "data", "1_processed", "main_research")
 output_base = os.path.join(base_path, r"daily_results\20260302\CoG")
 
